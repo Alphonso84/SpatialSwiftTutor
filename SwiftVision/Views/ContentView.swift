@@ -11,9 +11,9 @@ import RealityKitContent
 import VisionKit
 
 // Main View
-struct MainView: View {
+struct ContentView: View {
     @ObservedObject var viewModel = ContentEditorView_ViewModel()
-    @State private var selectedTheme = HighlightrTheme.androidstudio
+    @State private var selectedTheme = HighlightrTheme.agate
     @State private var analysisLength = ResponseLength.Short
     
     var body: some View {
@@ -47,5 +47,5 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView()
+    ContentView()
 }
