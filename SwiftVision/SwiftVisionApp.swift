@@ -12,6 +12,7 @@ struct SwiftVisionApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .background(.black.opacity(0.2))
         }
     }
 }

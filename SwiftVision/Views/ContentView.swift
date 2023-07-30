@@ -28,6 +28,7 @@ struct ContentView: View {
                 HStack {
                     CodeEditorView(viewModel: viewModel, questionType: $viewModel.questionType)
                     AnalysisResultView(viewModel: viewModel, selectedTheme: $selectedTheme, questionType: $viewModel.questionType)
+                        .cornerRadius(25)
                 }
                 
                 .onAppear(perform: viewModel.checkFirstLaunch)

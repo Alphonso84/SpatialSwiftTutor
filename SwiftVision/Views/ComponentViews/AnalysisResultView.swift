@@ -24,12 +24,14 @@ struct AnalysisResultView: View {
             } else {
                 ZStack{
                     TypingView(fullText:viewModel.analysis, theme:selectedTheme.rawValue)
+                        .cornerRadius(20)
                         .textSelection(.enabled)
                         .frame(maxWidth:.infinity,maxHeight: .infinity)
                         .frame(depth: 150)
-                        //.border(Color(UIColor.systemGray), width:1)
+                        .background(.black.opacity(0.5))
                         .padding(.leading)
                         .padding(.trailing)
+                        
                     if viewModel.showCheckmark {
                         Image(systemName: "checkmark.circle.fill")
                             .resizable()

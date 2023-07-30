@@ -25,7 +25,7 @@ struct CodeEditorView: View {
             Button(action: {
                 viewModel.analyzeWriting()
             }) {
-                Text("Compose a Response")
+                Text(questionType == .Code ? "Refactor This" : "Get Answer")
             }
             .foregroundColor(.primary) // Adjust color for light and dark mode
             .padding()
