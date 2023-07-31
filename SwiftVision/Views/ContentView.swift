@@ -15,20 +15,22 @@ struct ContentView: View {
     @ObservedObject var viewModel = ContentEditorView_ViewModel()
     @State private var selectedTheme = HighlightrTheme.agate
     @State private var analysisLength = ResponseLength.Short
+    @State private var date = Date()
     
     var body: some View {
         NavigationView {
-            SidebarView(selectedTheme: $selectedTheme, analysisLength: $analysisLength, viewModel: viewModel)
+            VStack {
+                SidebarView(selectedTheme: $selectedTheme, analysisLength: $analysisLength, viewModel: viewModel)
                 //.background(Color(uiColor: .secondarySystemBackground))
-                .onChange(of: viewModel.questionType) { newQuestionType in
-                    viewModel.questionType = newQuestionType
-                    print(viewModel.questionType)
-                }
+                    .onChange(of: viewModel.questionType) { newQuestionType in
+                        viewModel.questionType = newQuestionType
+                        print(viewModel.questionType)
+                    }
+            }
             VStack {
                 HStack {
                     CodeEditorView(viewModel: viewModel, questionType: $viewModel.questionType)
                     AnalysisResultView(viewModel: viewModel, selectedTheme: $selectedTheme, questionType: $viewModel.questionType)
-                        .cornerRadius(25)
                 }
                 
                 .onAppear(perform: viewModel.checkFirstLaunch)

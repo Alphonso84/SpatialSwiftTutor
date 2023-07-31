@@ -16,7 +16,7 @@ struct CodeEditorView: View {
             Text(questionType == .Code ? "Paste Your Swift Code Below:" : "Type Your iOS Question Below:")
                 .padding()
             
-            TextEditor(text: $viewModel.writing) // assuming this replacement for your custom editor
+            TextEditor(text: $viewModel.writing) 
                 .font(.custom("SF Mono Regular", size: 17))
                 //.border(Color(UIColor.systemGray), width: 1)
                 .padding(.leading)
@@ -27,7 +27,7 @@ struct CodeEditorView: View {
             }) {
                 Text(questionType == .Code ? "Refactor This" : "Get Answer")
             }
-            .foregroundColor(.primary) // Adjust color for light and dark mode
+            .foregroundColor(.primary)
             .padding()
             //.background(Color(UIColor.secondarySystemBackground)) // secondary background color
             .cornerRadius(25) // corner radius of 25

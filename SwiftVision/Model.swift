@@ -23,3 +23,4 @@ struct Message: Decodable {
 struct History: Codable {
     var history: [String: String]
 }
+

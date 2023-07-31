@@ -7,52 +7,84 @@
 
 def Xform "Root"
 {
-    reorder nameChildren = ["Sphere", "_GridMaterial", "_PlainMaterial"]
+    reorder nameChildren = ["Earth", "_PlainMaterial", "Material"]
     rel material:binding = None (
         bindMaterialAs = "weakerThanDescendants"
     )
 
-    def Sphere "Sphere" (
+    def "_PlainMaterial" (
         active = true
         prepend apiSchemas = ["MaterialBindingAPI"]
+        references = @_PlainMaterial.usda@
     )
     {
+        reorder nameChildren = ["Earth", "PlainMaterial"]
         rel material:binding = </Root/_PlainMaterial/PlainMaterial> (
             bindMaterialAs = "weakerThanDescendants"
         )
-        double radius = 0.05
-        quatf xformOp:orient = (1, 0, 0, 0)
         float3 xformOp:scale = (1, 1, 1)
-        float3 xformOp:translate = (0, 0, 0.0004)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
-        def RealityKitComponent "Collider"
+        over "PlainMaterial"
         {
-            uint group = 1
-            uniform token info:id = "RealityKit.Collider"
-            uint mask = 4294967295
-            token type = "Default"
+            float2 ui:nodegraph:realitykit:subgraphOutputs:size = (181.5, 99)
 
-            def RealityKitStruct "Shape"
+            over "UsdPreviewSurface"
             {
-                float3 extent = (0.2, 0.2, 0.2)
-                float radius = 0.05
-                token shapeType = "Sphere"
+                float inputs:clearcoat = 0.5
+                float inputs:metallic = 1
+                float inputs:roughness = 0.45
             }
-        }
 
-        def RealityKitComponent "InputTarget"
-        {
-            uniform token info:id = "RealityKit.InputTarget"
+            over "MaterialXPreviewSurface"
+            {
+                float2 ui:nodegraph:node:size = (207.5, 199)
+            }
         }
     }
 
-    def "_PlainMaterial" (
+    def Material "Material"
+    {
+        prepend token outputs:mtlx:surface.connect = </Root/Material/MaterialXPreviewSurface.outputs:out>
+        token outputs:realitykit:vertex
+        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (358.25, 99.5)
+        float2 ui:nodegraph:realitykit:subgraphOutputs:size = (181.5, 99)
+
+        def Shader "MaterialXPreviewSurface"
+        {
+            uniform token info:id = "ND_UsdPreviewSurface_surfaceshader"
+            color3f inputs:diffuseColor.connect = None
+            float inputs:metallic.connect = </Root/Material/GeomColor.outputs:out>
+            float3 inputs:normal
+            float inputs:opacity.connect = None
+            float inputs:roughness
+            token outputs:out
+            float2 ui:nodegraph:node:pos = (103.75, 99.5)
+            float2 ui:nodegraph:node:size = (207.5, 199)
+            int ui:nodegraph:node:stackingOrder = 8
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:diffuseColor"]
+        }
+
+        def Shader "GeomColor"
+        {
+            uniform token info:id = "ND_geomcolor_float"
+            int inputs:index
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-137.96484, -50.160156)
+            float2 ui:nodegraph:node:size = (160.5, 53)
+            int ui:nodegraph:node:stackingOrder = 21
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:index"]
+        }
+    }
+
+    def "Earth" (
         active = true
-        prepend references = @_PlainMaterial.usda@
+        references = @Earth.usdz@
     )
     {
+        quatf xformOp:orient = (1, 0, 0, 0)
         float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (0, 0, 0)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
 }

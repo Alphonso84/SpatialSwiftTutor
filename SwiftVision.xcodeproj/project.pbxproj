@@ -24,6 +24,9 @@
 		892C6AEB2A758A9600C810C7 /* CustomTextEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892C6AEA2A758A9600C810C7 /* CustomTextEditorView.swift */; };
 		892C6AED2A758AD500C810C7 /* TypingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892C6AEC2A758AD500C810C7 /* TypingView.swift */; };
 		89625CDB2A75AD6B00AAF03F /* Highlightr in Frameworks */ = {isa = PBXBuildFile; productRef = 89625CDA2A75AD6B00AAF03F /* Highlightr */; };
+		89625CDD2A771A8600AAF03F /* QuestionTypePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89625CDC2A771A8600AAF03F /* QuestionTypePicker.swift */; };
+		89625CDF2A7722A900AAF03F /* TopicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89625CDE2A7722A900AAF03F /* TopicModel.swift */; };
+		89625CE12A776A8F00AAF03F /* SwiftTopicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89625CE02A776A8F00AAF03F /* SwiftTopicsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		892C6AE72A7588DB00C810C7 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
 		892C6AEA2A758A9600C810C7 /* CustomTextEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextEditorView.swift; sourceTree = "<group>"; };
 		892C6AEC2A758AD500C810C7 /* TypingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypingView.swift; sourceTree = "<group>"; };
+		89625CDC2A771A8600AAF03F /* QuestionTypePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTypePicker.swift; sourceTree = "<group>"; };
+		89625CDE2A7722A900AAF03F /* TopicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicModel.swift; sourceTree = "<group>"; };
+		89625CE02A776A8F00AAF03F /* SwiftTopicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftTopicsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +89,7 @@
 				892C6ADD2A75883900C810C7 /* Views */,
 				892C6AE92A7589CD00C810C7 /* Utilities */,
 				892C6AD32A75852800C810C7 /* Model.swift */,
+				89625CDE2A7722A900AAF03F /* TopicModel.swift */,
 				892C6AD92A75867700C810C7 /* Service.swift */,
 				892C6AD72A75864E00C810C7 /* ContentEditorView_ViewModel.swift */,
 				892C6AC92A7582DD00C810C7 /* Assets.xcassets */,
@@ -120,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				892C6ADF2A75887900C810C7 /* SideBarView.swift */,
+				89625CDC2A771A8600AAF03F /* QuestionTypePicker.swift */,
 				892C6AE12A7588A300C810C7 /* SideBarSeparator.swift */,
 				892C6AE32A7588B500C810C7 /* AnalysisResultView.swift */,
 				892C6AE52A7588CA00C810C7 /* CodeEditorView.swift */,
@@ -134,6 +142,7 @@
 				892C6ADB2A75877800C810C7 /* PromptModels.swift */,
 				892C6AEA2A758A9600C810C7 /* CustomTextEditorView.swift */,
 				892C6AEC2A758AD500C810C7 /* TypingView.swift */,
+				89625CE02A776A8F00AAF03F /* SwiftTopicsView.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -220,14 +229,17 @@
 				892C6AD42A75852800C810C7 /* Model.swift in Sources */,
 				892C6ADA2A75867700C810C7 /* Service.swift in Sources */,
 				892C6ADC2A75877800C810C7 /* PromptModels.swift in Sources */,
+				89625CDF2A7722A900AAF03F /* TopicModel.swift in Sources */,
 				892C6AE62A7588CA00C810C7 /* CodeEditorView.swift in Sources */,
 				892C6AE22A7588A300C810C7 /* SideBarSeparator.swift in Sources */,
+				89625CE12A776A8F00AAF03F /* SwiftTopicsView.swift in Sources */,
 				892C6AE42A7588B500C810C7 /* AnalysisResultView.swift in Sources */,
 				892C6AC82A7582DC00C810C7 /* ContentView.swift in Sources */,
 				892C6AE02A75887900C810C7 /* SideBarView.swift in Sources */,
 				892C6AED2A758AD500C810C7 /* TypingView.swift in Sources */,
 				892C6AC62A7582DC00C810C7 /* SwiftVisionApp.swift in Sources */,
 				892C6AEB2A758A9600C810C7 /* CustomTextEditorView.swift in Sources */,
+				89625CDD2A771A8600AAF03F /* QuestionTypePicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

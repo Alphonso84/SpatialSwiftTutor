@@ -8,7 +8,7 @@
 import Foundation
 
 enum Tab {
-        case settings, history, about
+        case topics, history, about
     }
 
 enum RequestError: Error, LocalizedError, Identifiable {

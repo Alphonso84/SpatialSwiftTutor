@@ -11,14 +11,15 @@ import SwiftUI
 struct SidebarView: View {
     @Binding var selectedTheme: HighlightrTheme
     @Binding var analysisLength: ResponseLength
-    @State var selectedTab: Tab = .settings
+    @State var selectedTab: Tab = .topics
+    @State private var date = Date()
     @ObservedObject var viewModel: ContentEditorView_ViewModel
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         VStack {
             Picker(selection: $selectedTab, label: Text(""), content:{
-                Text("Settings").tag(Tab.settings)
+                Text("Topics").tag(Tab.topics)
                 Text("History").tag(Tab.history)
                 Text("About").tag(Tab.about)
             })
@@ -26,47 +27,12 @@ struct SidebarView: View {
             .padding()
             ZStack {
                 switch selectedTab {
-                case .settings:
-                    // Show settings view
+                case .topics:
+                    // Show topics view
                     VStack {
                         SideBarSeparator()
-                        
-                        Picker("Question Type", selection: $viewModel.questionType) {
-                            ForEach(QuestionType.allCases) { question in
-                                Text(question.rawValue).tag(question)
-                            }
-                        }
-                        .pickerStyle(SegmentedPickerStyle())
-                        HStack {
-                            Text("Syntax Style")
-                                .accentColor(Color(uiColor: .secondaryLabel))
-                            Picker("Syntax Style", selection: $selectedTheme) {
-                                ForEach(HighlightrTheme.allCases) { theme in
-                                    Text(theme.rawValue)
-                                        .foregroundColor(.primary)
-                                        .tag(theme)
-                                }
-                            }
-                            .pickerStyle(MenuPickerStyle())
-                            .accentColor(Color(uiColor: .label))
-                            //.background(Color(uiColor: .tertiarySystemBackground))
-                            Spacer()
-                        }
-                        HStack {
-                            Text("Analysis Length")
-                                .accentColor(Color(uiColor: .secondaryLabel))
-                            Picker("Analysis Length", selection: $analysisLength) {
-                                ForEach(ResponseLength.allCases) { length in
-                                    Text(length.rawValue)
-                                        .foregroundColor(.primary)
-                                        .tag(length)
-                                }
-                            }
-                            .pickerStyle(MenuPickerStyle())
-                            .accentColor(Color(uiColor: .label))
-                            //.background(Color(uiColor: .tertiarySystemBackground))
-                            Spacer()
-                        }
+                        SwiftTopicsView()
+                       
                         Spacer()
                     }
                 case .history:
@@ -88,5 +54,10 @@ struct SidebarView: View {
             }
         }
         .padding()
+        
     }
+}
+
+#Preview {
+    SidebarView(selectedTheme: .constant(HighlightrTheme.agate), analysisLength:.constant(.Short), viewModel: ContentEditorView_ViewModel())
 }
