@@ -9,10 +9,10 @@ import SwiftUI
 
 struct SwiftTopicsView: View {
     let swiftTopics: [String: [String]] = TopicModel().topicsAndSubTopicDict
-    
+    let orderedKeys = TopicModel().orderedKeys
     var body: some View {
         List {
-            ForEach(swiftTopics.keys.sorted(), id: \.self) { key in
+            ForEach(orderedKeys, id: \.self) { key in
                 Section(header:
                             HStack {
                     //Spacer()  // Spacer on the left

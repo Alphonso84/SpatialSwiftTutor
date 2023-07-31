@@ -10,7 +10,7 @@ import Foundation
 
 struct TopicModel {
     var topicsAndSubTopicDict: [String:[String]]
-    
+    let orderedKeys: [String] = ["Basics of Swift", "Operators", "Control Flow", "Functions", "Collections", "Optionals", "Structs & Classes", "Initialization", "Protocols and Extensions", "Error Handling"]
     init() {
         self.topicsAndSubTopicDict =   [
             "Basics of Swift":[
@@ -41,8 +41,7 @@ struct TopicModel {
                 "Understanding Optionals",
                 "Optional Binding",
                 "Implicitly Unwrapped Optionals",
-                "Optional Chaining"
-            ],
+                "Optional Chaining"],
             "Structs & Classes": [
                 "Defining and Creating Structs",
                 "Computed Properties",
@@ -55,6 +54,15 @@ struct TopicModel {
                 "Initializer Delegation",
                 "Failable Initializers",
                 "Required Initializers"],
+            "Protocols and Extensions": [
+                "Protocol Syntax",
+                "Protocol Conformance",
+                "Protocol Inheritance",
+                "Extensions"],
+            "Error Handling": [
+                "Representing and Throwing Errors",
+                "Handling Errors",
+                "Specifying Clean-Up Actions"]
         ]
     }
 }
